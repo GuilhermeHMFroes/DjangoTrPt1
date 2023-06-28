@@ -19,8 +19,15 @@ from django.urls import path
 from trabalho import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('controle/', admin.site.urls),
 
     path('', views.index, name='index'),
+    path('aluno/<str:nome>/', views.aluno, name='aluno'),
+
+    #Nota individual para a página contato carregar sem conflito ele deve ter essa estrutura na url 'aluno/<str:nome>/'
+    #Se for usar a rota somente como '<str:nome>/' a página que tiver embaixo vai dar erro e deve ser colocada acima desse elemento
+    #Recomendo usar a primeira opção pois evita ficar dando esses erros e pode ser que em aplicações onde seja necessário usar várias requisições desse tipo
+
+    path('contato/', views.contato, name='contato'),
 
 ]

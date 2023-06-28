@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+    <br>
+
+    <table class="table table-bordered text-center align-middle">
+
+        <tr>
+
+            <th>Nome</th>
+            <th>Período de ingresso</th>
+            <th>Nota Web Avançado</th>
+            <th>Situação</th>
+
+        </tr>
+
+        <tr>
+
+            <td>{{aluno.nome}}</td>
+            <td>{{aluno.semestreIngresso}}/{{aluno.anoIngresso}}</td>
+            <td>{{aluno.nota}}</td>
+            <td{% if aluno.situacao == 'Aprovado' %} class="text-success"{% elif aluno.situacao == 'Reprovado' %} class="text-danger"{% endif %}>{{ aluno.situacao }}</td>
+
+        </tr>
+
+    </table>
+
+{% endblock %}

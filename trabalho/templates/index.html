@@ -2,6 +2,26 @@
 
 {% block content %}
 
-    <h1>HELLO WORLD!</h1>
+    <br><h3>Alunos</h3><br>
+
+    <table class="table table-bordered text-center align-middle">
+
+        <tr>
+
+            <th>Nome do aluno:</th>
+
+        </tr>
+
+        {%for aluno in alunos%}
+
+            <tr>
+
+                <td id="nome"><a href="{% url 'aluno' aluno.nome %}">{{ aluno.nome }}</a></td>
+
+            </tr>
+
+        {%endfor%}
+
+    </table>
 
 {% endblock %}
